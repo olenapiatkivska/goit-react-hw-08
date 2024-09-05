@@ -13,14 +13,9 @@ const handleRejected = (state, action) => {
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
-    contacts: {
-      items: [],
-      loading: false,
-      error: null,
-    },
-    filters: {
-      name: '',
-    },
+    items: [],
+    loading: false,
+    error: null,
   },
   extraReducers: builder => {
     builder

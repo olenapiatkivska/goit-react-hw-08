@@ -1,8 +1,9 @@
 :root {
-  max-width: 1280px;
-  padding: 16px;
+  max-width: 1440px;
+  padding: 32px;
+  background-color: rgba(206, 206, 206, 0.355);
 }
 
-.title {
+/* .title {
   margin-bottom: 15px;
-}
+} */
