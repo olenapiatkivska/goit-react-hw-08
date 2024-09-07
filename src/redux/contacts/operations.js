@@ -1,13 +1,12 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-axios.defaults.baseURL = 'https://connections-api.goit.global';
+import { instance } from '../auth/operations';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/contacts');
+      const response = await instance.get('/contacts');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,7 +18,7 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async ({ name, number }, thunkAPI) => {
     try {
-      const response = await axios.post('/contacts', { name, number });
+      const response = await instance.post('/contacts', { name, number });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -31,7 +30,7 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/contacts/${contactId}`);
+      const response = await instance.delete(`/contacts/${contactId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -43,7 +42,7 @@ export const updateContact = createAsyncThunk(
   'contacts/updateContact',
   async (contactId, thunkAPI) => {
     try {
-      const response = await axios.patch(`/contacts/${contactId}`);
+      const response = await instance.patch(`/contacts/${contactId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
