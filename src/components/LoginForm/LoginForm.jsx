@@ -52,7 +52,7 @@ const LoginForm = () => {
           />
         </label>
         <button className={css.buttonLogin} type="submit">
-          log in
+          log In
         </button>
       </Form>
     </Formik>

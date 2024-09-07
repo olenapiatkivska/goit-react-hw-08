@@ -3,12 +3,16 @@ import DocumentTitle from '../../components/DocumentTitle';
 import { useEffect } from 'react';
 import { fetchContacts } from '../../redux/contacts/operations';
 import ContactList from '../../components/ContactList/ContactList';
-import { selectIsLoading } from '../../redux/contacts/selectors';
+import {
+  selectContacts,
+  selectIsLoading,
+} from '../../redux/contacts/selectors';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import ContactForm from '../../components/ContactForm/ContactForm';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
@@ -22,7 +26,11 @@ export default function ContactsPage() {
       <ContactForm />
       <SearchBox />
       <div>{isLoading && 'Request in progress...'}</div>
-      <ContactList />
+      {contacts.length > 0 ? (
+        <ContactList />
+      ) : (
+        <p>There are no any contacts ...</p>
+      )}
     </>
   );
 }

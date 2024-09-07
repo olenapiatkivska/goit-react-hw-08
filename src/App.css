@@ -1,9 +1,6 @@
 :root {
-  max-width: 1440px;
-  padding: 32px;
-  background-color: rgba(206, 206, 206, 0.355);
+  max-width: 960px;
+  margin: 0px auto;
+  padding: 0px 16px;
+  /* background-color: rgba(206, 206, 206, 0.355); */
 }
-
-/* .title {
-  margin-bottom: 15px;
-} */
